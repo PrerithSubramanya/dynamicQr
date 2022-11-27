@@ -25,7 +25,9 @@ def returnGSheet():
 def createLinkAndId(worksheet: Worksheet, suffix: str, qr_range: int):
     base_url = f"http://l.qlub.io/au/{suffix}"
 
-    worksheet.update("A1:D1", [["Ids", "qrLinks", "LandingURL", "Replaced"]])
+    worksheet.update(
+        "A1:E1", [["Ids", "qrLinks", "LandingURL", "Replaced", "DateTime"]]
+    )
 
     for i in range(2, qr_range + 2):
         worksheet.update(f"A{i}:B{i}", [[f"{suffix}_{i-1}", f"{base_url}_{i-1}"]])

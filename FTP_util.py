@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from ftplib import FTP
 from gspread import Worksheet
 
@@ -20,3 +21,4 @@ def bulkCreateAndChangeURl(qrIdsList: list, sheet: Worksheet) -> None:
                     os.remove(f'{qrIds.get("Ids")}.html')
                     cell = sheet.find(f"{qrIds.get('Ids')}")
                     sheet.update_cell(cell.row, 4, "Yes")
+                    sheet.update_cell(cell.row, 5, str(datetime.now()))

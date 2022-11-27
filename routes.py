@@ -30,7 +30,7 @@ async def create_qr(unique_name: str, qr_range: int, sheet: GsheetConfig):
         work_sheet = gSheet.sheet1
     else:
         work_sheet = gSheet.add_worksheet(
-            title=sheet.WorkSheetName, rows=qr_range + 1, cols=4
+            title=sheet.WorkSheetName, rows=qr_range + 1, cols=5
         )
 
     createLinkAndId(work_sheet, unique_name, qr_range)
