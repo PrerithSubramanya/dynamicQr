@@ -6,6 +6,7 @@ from g_sheets_utils import returnClient, returnGSheet, createLinkAndId
 
 gsClient = returnClient()
 gSheet = returnGSheet()
+StartIndex = 2
 
 
 class UserEmail(BaseModel):
@@ -33,7 +34,7 @@ async def create_qr(unique_name: str, qr_range: int, sheet: GsheetConfig):
             title=sheet.WorkSheetName, rows=qr_range + 1, cols=5
         )
 
-    createLinkAndId(work_sheet, unique_name, qr_range)
+    createLinkAndId(work_sheet, unique_name, StartIndex, qr_range)
 
 
 @router.post(
